@@ -13,14 +13,16 @@ CREATE TABLE IF NOT EXISTS medicines (
 CREATE TABLE IF NOT EXISTS orders (
   id INT PRIMARY KEY AUTO_INCREMENT,
   total_amount DOUBLE,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  order_date DATETIME
 );
 
 CREATE TABLE IF NOT EXISTS order_item (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  order_id INT,
   medicine_id INT,
+  price DOUBLE,
   quantity INT,
+  order_id INT,
   FOREIGN KEY (order_id) REFERENCES orders(id),
   FOREIGN KEY (medicine_id) REFERENCES medicines(id)
 );
