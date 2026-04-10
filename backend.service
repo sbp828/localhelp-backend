@@ -1,0 +1,14 @@
+[Unit]
+Description=LocalHelp Backend Service
+After=network.target
+
+[Service]
+User=localhelp
+WorkingDirectory=/app/localhelp-backend
+ExecStart=/usr/bin/java -jar $JARFILE
+Restart=always
+Environment=SPRING_PROFILES_ACTIVE=prod
+
+[Install]
+WantedBy=multi-user.target
+EOF
