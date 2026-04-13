@@ -4,8 +4,9 @@ After=network.target
 
 [Service]
 User=localhelp
+WorkingDirectory=/app/localhelp-backend
 Environment=DB_HOST="db.localhelp.store"
-ExecStart=/usr/bin/java -jar $JARFILE
+ExecStart=/usr/bin/java -jar /app/localhelp-backend/app.jar
 Restart=always
 
 [Install]

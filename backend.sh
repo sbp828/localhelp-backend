@@ -8,6 +8,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+DB_HOST="db.localhelp.store"
 echo "Please enter DB password:"
 read -s mysql_root_password
 echo "logfile location = $LOGFILE"
@@ -75,11 +76,11 @@ cd /app/localhelp-backend
 sudo -u localhelp mvn clean package -DskipTests
 VALIDATE $? "Building Spring Boot JAR"
 
-# Get JAR name dynamically
-JARFILE=$(ls target/*.jar | head -n 1)
+#Hardcode or rename JAR:
+mv target/*.jar app.jar
 
 
-cp /home/ubuntu/local-backend/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
+cp /app/localhelp-backend/backend.service /etc/systemd/system/
 VALIDATE $? "Copied backend service file"
 
 # Reload systemd
@@ -97,7 +98,7 @@ apt install mysql-client -y
 VALIDATE $? "Installing mysql client"
 
 # Load DB schema (UPDATE IP + PATH)
-mysql -h localhost -uroot -p${mysql_root_password} < /app/localhelp-backend/db/init.sql
+mysql -h ${DB_HOST} -uroot -p${mysql_root_password} < /app/localhelp-backend/db/init.sql
 VALIDATE $? "Loading schema"
 
 # Restart backend
