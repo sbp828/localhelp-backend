@@ -10,7 +10,7 @@ Y="\e[33m"
 N="\e[0m"
 DB_HOST="db.localhelp.store"
 echo "Please enter DB password:"
-read -s mysql_root_password
+read -s mysql_password
 echo "logfile location = $LOGFILE"
 
 #exec >>$LOGFILE
@@ -98,7 +98,7 @@ apt install mysql-client -y
 VALIDATE $? "Installing mysql client"
 
 # Load DB schema (UPDATE IP + PATH)
-mysql -h ${DB_HOST} -uroot -p${mysql_root_password} < /app/localhelp-backend/db/init.sql
+mysql -h ${DB_HOST} -uappuser -p${mysql_password} < /app/localhelp-backend/db/init.sql
 VALIDATE $? "Loading schema"
 
 # Restart backend
