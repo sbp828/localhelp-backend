@@ -76,9 +76,9 @@ http://localhost:8080
 ---
 
 ## 🔗 API Endpoints (Sample)
-
-##Check health of backend: http://backend.localhelp.store:8080/health
-
+```
+Check health of backend: http://backend.localhelp.store:8080/health
+```
 <img width="1358" height="453" alt="image" src="https://github.com/user-attachments/assets/f53da1de-6b5a-4aa1-a722-c3cf5b7887ba" />
 
 
@@ -104,16 +104,20 @@ POST /orders : http://backend.localhelp.store:8080/orders
 * orders
 * order_items
   
-tables:
+# tables:
+
 <img width="283" height="194" alt="image" src="https://github.com/user-attachments/assets/10941c05-9244-43fa-80aa-7d391a95d4b6" />
 
-medicines:
+# medicines:
+
 <img width="666" height="550" alt="image" src="https://github.com/user-attachments/assets/37bd0fe2-a529-4896-b6ca-190339688ca9" />
 
-orders:
+# orders:
+
 <img width="352" height="229" alt="image" src="https://github.com/user-attachments/assets/3feae275-de91-4eb6-99a2-1cae78a206a4" />
 
-order_items:
+# order_items:
+
 <img width="592" height="269" alt="image" src="https://github.com/user-attachments/assets/78459e11-ee0e-47fd-a1fc-cf75a418d481" />
 
 ---
