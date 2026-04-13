@@ -4,10 +4,9 @@ After=network.target
 
 [Service]
 User=localhelp
-WorkingDirectory=/app/localhelp-backend
+Environment=DB_HOST="db.localhelp.store"
 ExecStart=/usr/bin/java -jar $JARFILE
 Restart=always
-Environment=SPRING_PROFILES_ACTIVE=prod
 
 [Install]
 WantedBy=multi-user.target
