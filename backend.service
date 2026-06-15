@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=localhelp
 WorkingDirectory=/app/localhelp-backend
-Environment=DB_HOST="db.localhelp.store"
+Environment=DB_HOST="db-dev.localhelp.store"
 ExecStart=/usr/bin/java -jar /app/localhelp-backend/app.jar
 Restart=always
 
