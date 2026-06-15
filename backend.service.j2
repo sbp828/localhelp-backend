@@ -1,0 +1,17 @@
+[Unit]
+Description=LocalHelp Backend Service
+After=network.target
+
+[Service]
+User=localhelp
+WorkingDirectory=/app
+Environment="DB_HOST={{ login_host }}"
+Environment="DB_USER={{ login_user }}"
+Environment="DB_PASSWORD={{ login_password }}"
+ExecStart=/usr/bin/java -jar {{ app_jar }}
+SuccessExitStatus=143
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
