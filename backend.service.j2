@@ -4,13 +4,14 @@ After=network.target
 
 [Service]
 User=localhelp
-WorkingDirectory=/opt/localhelp/backend
+WorkingDirectory=/app/localhelp-backend
+ExecStart=/usr/bin/java -jar /app/localhelp-backend/app.jar
 
 Environment="DB_HOST={{ login_host }}"
 Environment="DB_USER={{ login_user }}"
 Environment="DB_PASSWORD={{ login_password }}"
 
-ExecStart=/usr/bin/java -jar {{ app_jar }}
+
 
 SuccessExitStatus=143
 Restart=always
