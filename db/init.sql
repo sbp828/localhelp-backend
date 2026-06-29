@@ -1,4 +1,14 @@
 CREATE DATABASE IF NOT EXISTS appdb;
+
+-- =========================
+-- CREATE APPLICATION USER
+-- =========================
+CREATE USER IF NOT EXISTS 'appuser'@'%' IDENTIFIED BY 'localhelp';
+
+GRANT ALL PRIVILEGES ON appdb.* TO 'appuser'@'%';
+
+FLUSH PRIVILEGES;
+
 USE appdb;
 
 -- =========================
